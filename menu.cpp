@@ -61,20 +61,44 @@ void Distribution::distributeSkillPoints(Hero &h) {
 	int luckPoints = 0;
 
 	// health point distribution
-	std::cout << "How many skill points do you want to place in Health? : ";
-	std::cout << "Enter a number between " << skillPoints << " and 0";
+	std::cout << "How many skill points do you want to place in Health?\n";
+	std::cout << "Enter a number between " << skillPoints << " and 0: ";
 	std::cin >> healthPoints;
 	skillPoints -= healthPoints;
-	h.setHealth(5 + healthPoints, h);
+	h.setHealth(25 + healthPoints, h);
 	std::cout << "New Health value: ";
 	h.printHealth(h);
 	std::cout << std::endl;
 
 	// attack point distribution
+	std::cout << "How many skill points do you want to place in Attack?\n";
+	std::cout << "Enter a number between " << skillPoints << " and 0: ";
+	std::cin >> attackPoints;
+	skillPoints -= attackPoints;
+	h.setAttack(5 + attackPoints, h);
+	std::cout << "New Attack value: ";
+	h.printAttack(h);
+	std::cout << std::endl;
 
 	// agility point distribution
+	std::cout << "How many skill points do you want to place in Agility?\n";
+	std::cout << "Enter a number between " << skillPoints << " and 0: ";
+	std::cin >> agilityPoints;
+	skillPoints -= agilityPoints;
+	h.setAgility(5 + agilityPoints, h);
+	std::cout << "New Agility value: ";
+	h.printAgility(h);
+	std::cout << std::endl;
 
 	// luck point distribution
+	std::cout << "How many skill points do you want to place in Luck?\n";
+	std::cout << "Enter a number between " << skillPoints << " and 0: ";
+	std::cin >> luckPoints;
+	skillPoints -= luckPoints;
+	h.setLuck(5 + luckPoints, h);
+	std::cout << "New Luck value: ";
+	h.printLuck(h);
+	std::cout << std::endl;
 }
 
 void Distribution::heroStatsConversation(Hero &h, Distribution &d) {
@@ -82,6 +106,9 @@ void Distribution::heroStatsConversation(Hero &h, Distribution &d) {
 	h.printHeroStats(h);
 	std::cout << std::endl;
 	std::cout << "Damn you're weak! Yeah buddy, here's those 20 skill points. Put them in whichever category you want!\n";
-	
 	d.distributeSkillPoints(h);
+
+	// print updated hero stats
+	std::cout << "Here are your updated hero stats after applying the 20 skill ponits!\n";
+	h.printHeroStats(h);
 }

@@ -7,7 +7,7 @@
 #include "hero.h"
 
 Hero::Hero() {
-	health = 5;
+	health = 25;
 	attack = 5;
 	agility = 5;
 	luck = 5;
@@ -48,7 +48,7 @@ void Hero::printHeroStats(Hero &h) {
 	SetConsoleTextAttribute(hConsole, 9); // light blue
 	std::cout << "AGILITY: " << h.agility << std::endl;
 	SetConsoleTextAttribute(hConsole, 14); // yellow
-	std::cout << "LUCK: " << h.agility << std::endl;
+	std::cout << "LUCK: " << h.luck << std::endl;
 	SetConsoleTextAttribute(hConsole, 15); // white
 }
 
