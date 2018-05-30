@@ -1,4 +1,6 @@
 # C++ Automated Dungeon Crawler
+### by Alex Haase
+
 ## Execution is determined based on your decisions! 
 
 This dungeon crawler is a C++ automated decision game formatted as a classic level based simulation. The player (you!) starts is given 4 skill based attributes (Health, Attack, Agility, Luck) and given 25 points to add to the skill categories.
