@@ -2,14 +2,14 @@
 #### by Alex Haase
 
 ## Introduction
-This dungeon crawler is a C++ automated decision game formatted as a classic level based simulation. The player (you!) is given 4 skill based attributes (Health, Attack, Agility, Luck) and given 25 points to add to the skill categories. Execution is determined based on your decisions
+This dungeon crawler is a C++ automated decision game formatted as a classic level based simulation. The player (you!) is given 4 skill based attributes (Vitality, Attack, Agility, Luck) and given 25 points to add to the skill categories. Execution is determined based on your decisions
 
 From there a simulation will run, and based on your choices the hero either lives to the end of the simulation (Floor 10 of the dungeon) or dies. Best of luck!
 
 ## Skill Traits
-The player is defaulted to 5 skill points in each of the mentioned categories (apart from Health, which is 25). An additional 25 is given to spend throughout each category, with the goal of buffing your player correctly to allow for completion of the puzzle. There are many efficient combinations! Keep trying!
+The player is defaulted to 5 skill points in each of the mentioned categories (apart from Vitality, which is 25). An additional 25 is given to spend throughout each category, with the goal of buffing your player correctly to allow for completion of the puzzle. There are many efficient combinations! Keep trying!
 
-**HEALTH**: Your health pool, when this falls to 0, you die. You start with a default health of 25 HP.
+**VITALITY**: Your health pool, when this falls to 0, you die. You start with a default health of 25 HP.
 
 **ATTACK**: How much damage you do to enemies. The faster you kill incoming enemies, the faster you can proceed with the dungeon.
 
