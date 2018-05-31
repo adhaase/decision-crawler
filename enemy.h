@@ -9,3 +9,7 @@ class Enemy {
 class Slime : public Enemy {
 	std::string name;
 };
+
+class Goblin : public Enemy {
+	std::string name;
+};
