@@ -3,7 +3,7 @@
 
 class Enemy {
 	int attack;
-	int health;
+	int vitality;
 };
 
 class Slime : public Enemy {
