@@ -42,7 +42,7 @@ void Hero::printLuck(Hero &h) {
 void Hero::printHeroStats(Hero &h) {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, 10); // light green
-	std::cout << "vitality: " << h.vitality << std::endl;
+	std::cout << "VITALITY: " << h.vitality << std::endl;
 	SetConsoleTextAttribute(hConsole, 12); // light red
 	std::cout << "ATTACK: " << h.attack << std::endl;
 	SetConsoleTextAttribute(hConsole, 11);
@@ -50,8 +50,4 @@ void Hero::printHeroStats(Hero &h) {
 	SetConsoleTextAttribute(hConsole, 14); // yellow
 	std::cout << "LUCK: " << h.luck << std::endl;
 	SetConsoleTextAttribute(hConsole, 15); // white
-}
-
-void Hero::setSkillPoints(Hero &h) {
-
 }

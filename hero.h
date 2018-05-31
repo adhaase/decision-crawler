@@ -20,7 +20,7 @@ private:
 	std::vector<Tools> backpack;
 public:
 	Hero(); // hero ctor -- initalizes hero stats and backpack
-	void setSkillPoints(Hero &h);
+	//void setSkillPoints(Hero &h);
 	//individual value get/set print functions
 	void setvitality(int vitality, Hero &h);
 	void setAttack(int attack, Hero &h);

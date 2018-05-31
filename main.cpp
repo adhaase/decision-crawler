@@ -18,6 +18,9 @@ int main(int argc, char *argv[]) {
 	Distribution d;
 	d.heroStatsConversation(h, d);
 
+	Simulate s;
+	s.promptSimulation();
+
 	system("pause");
 	return 0;
 }

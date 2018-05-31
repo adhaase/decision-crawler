@@ -1,5 +1,10 @@
 #include <iostream>
 #include <string>
+#include <random>
+#include <ctime>
+#include <chrono>
+#include <thread>
+
 #include <windows.h> // WinApi header
 #include "menu.h"
 #include "hero.h"
@@ -19,15 +24,7 @@ void UI::printHeader() {
 	std::cout << "\n";
 }
 
-void UI::printIntro() {
-	SetConsoleTextAttribute(hConsole, 15); //reset console color back to white
-
-	std::cout << "Welcome brave hero! I'm about to send you down into a 10 story dungeon! MUHAHA! ";
-	std::cout << "Don't worry though, I'll give you 20 skill points, allowing you to customize your favorite attributes to allow the best chance for survival! ";
-	std::cout << "Each floor gets more and more intense, however, you will have a chance of picking up rare items to aid in your quest! ";
-	std::cout << "Make it to floor 10 to receive your reward! ";
-	std::cout << std::endl << std::endl;
-
+static void printSkillCategoryInfo() {
 	std::cout << "The skill categories are: ";
 	SetConsoleTextAttribute(hConsole, 10); // light green
 	std::cout << "VITALITY ";
@@ -52,6 +49,32 @@ void UI::printIntro() {
 	SetConsoleTextAttribute(hConsole, 15); //reset console color back to white
 
 	std::cout << std::endl << std::endl;
+}
+
+void UI::printIntro() {
+	SetConsoleTextAttribute(hConsole, 15); //reset console color back to white
+
+	std::cout << "Welcome brave hero! I'm about to send you down into a 10 story dungeon! MUHAHA! ";
+	std::cout << "Don't worry though, I'll give you 20 skill points, allowing you to customize your favorite attributes to allow the best chance for survival! ";
+	std::cout << "Each floor gets more and more intense, however, you will have a chance of picking up rare items to aid in your quest! ";
+	std::cout << "Make it to floor 10 to receive your reward! ";
+	std::cout << std::endl << std::endl;
+
+	char skillCategoryChoice = '/0';
+	std::cout << "Are you ready to hear about these skill categories? (y/n): ";
+	std::cin >> skillCategoryChoice;
+	switch (skillCategoryChoice) {
+	case 'y':
+		printSkillCategoryInfo();
+		break;
+	case 'n':
+		std::cout << "Alright then, use your skill points wisely!\n";
+		break;
+	default:
+		SetConsoleTextAttribute(hConsole, 12); // light red
+		std::cout << "ERROR: You need to enter a valid choice (y/n).\n";
+		SetConsoleTextAttribute(hConsole, 15);
+	}
 }
 
 // validate user input with respect to current allowed Skill Points
@@ -100,15 +123,19 @@ static void executeSkillPointDistribution(
 	switch (option) {
 	case 'h':
 		attribute = "vitality";
+		SetConsoleTextAttribute(hConsole, 10); // light green
 		break;
 	case 'a':
 		attribute = "attack";
+		SetConsoleTextAttribute(hConsole, 12); // light red
 		break;
 	case 'g':
 		attribute = "agility";
+		SetConsoleTextAttribute(hConsole, 11); // light cyan
 		break;
 	case 'l':
 		attribute = "luck";
+		SetConsoleTextAttribute(hConsole, 14); // yellow
 		break;
 	default:
 		break;
@@ -135,6 +162,7 @@ static void executeSkillPointDistribution(
 		else distribute(h, 'l', numPoints, skillPoints);
 	}
 
+	SetConsoleTextAttribute(hConsole, 15);
 	std::cout << "New " << attribute << " value: ";
 	switch (option) {
 	case 'h':
@@ -176,7 +204,26 @@ void Distribution::distributeSkillPoints(Hero &h) {
 }
 
 void Distribution::heroStatsConversation(Hero &h, Distribution &d) {
+	char choice = '/0';
+	std::cout << "Are you ready to proceed (p), or do you want to quit (q)? : ";
+	std::cin >> choice;
+	switch (choice) {
+	case 'p':
+		break;
+	case 'q':
+		exit(0);
+		break;
+	default:
+		exit(0);
+	}
+
 	std::cout << "Let's take a look at your current stats: \n";
+	std::cout << "Loading ";
+	for (int i = 0; i < 3; ++i) {
+		std::this_thread::sleep_for(std::chrono::milliseconds(750)); // SUSPENSE!
+		std::cout << ".";
+	}
+	std::cout << std::endl;
 	h.printHeroStats(h);
 	std::cout << std::endl;
 	std::cout << "Damn you're weak! Yeah buddy, here are those 20 skill points. Put them in whichever category you want!\n";
