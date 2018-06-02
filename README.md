@@ -17,3 +17,5 @@ The player is defaulted to 5 skill points in each of the mentioned categories (a
 
 **LUCK**: Increases your ability to find new items and tools allowing you to progress through the dungeon faster.
 
+Current prototype of the skill distribution/customization system. The dungeon system is currently being worked on.
+![decision crawler prototype](https://user-images.githubusercontent.com/9776844/40870199-5de2345c-65f8-11e8-9536-1201d0a54770.PNG)
